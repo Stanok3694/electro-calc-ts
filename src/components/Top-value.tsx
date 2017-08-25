@@ -16,13 +16,16 @@ class TopValueComponent extends React.Component<TopValue> {
             return "Top night value: "
         }  
         
-        let topValueType = setTopValueTypeLabel(typeOfTopValue);
-
+        let topValueType: string = setTopValueTypeLabel(typeOfTopValue);
+        let calculate: number = 0;
         return (
             <div className="topValue">
                 <p>{topValueType}</p>
                 <TopValueContent type="previous"/>
                 <TopValueContent type="current"/>
+                
+                <button>Calculate</button>
+                <p className="resultField">{calculate}</p>
             </div>            
         );
     }
