@@ -7,8 +7,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TopValueComponent type='day' />
-        <TopValueComponent type='night' />
+        <TopValueComponent type="day" />
+        <TopValueComponent type="night" />
       </div>
     );
   }

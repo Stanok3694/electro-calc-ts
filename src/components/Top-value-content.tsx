@@ -1,19 +1,19 @@
 import * as React from 'react';
 
-interface TopValueContent {type: string}
+interface TopValueContent { type: string; }
 
 class TopValueContentComponent extends React.Component<TopValueContent> {
     render() {
         const typeOfTopValueContent = this.props.type;
 
-        function setTopValueComponentLabel(type: string) : string {
+        function setTopValueComponentLabel(type: string): string {
 
             let label = {
-                current: "Current month: ",
-                previous:  "Previous month: "
+                current: 'Current month: ',
+                previous:  'Previous month: '
             };
 
-            if(type == "current") {
+            if ( type === 'current' ) {
                 return label.current;
             }
             return label.previous; 

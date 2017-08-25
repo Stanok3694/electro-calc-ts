@@ -1,19 +1,19 @@
-import * as React from 'react'
+import * as React from 'react';
 
 import TopValueContent from './Top-value-content';
 
-interface TopValue {type: string}
+interface TopValue { type: string; }
 
 class TopValueComponent extends React.Component<TopValue> {
 
     render() {
         const typeOfTopValue = this.props.type;
 
-        function setTopValueTypeLabel(type: string){
-            if(type == "day") {
-                return "Top day value: "
+        function setTopValueTypeLabel(type: string): string {
+            if ( type === 'day' ) {
+                return 'Top day value: ';
             }
-            return "Top night value: "
+            return 'Top night value: ';
         }  
         
         let topValueType: string = setTopValueTypeLabel(typeOfTopValue);

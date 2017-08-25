@@ -1,5 +1,7 @@
 .topValue {
+    display: inline-block;
     margin-left: 10px;
+    padding-right: 40px;
 }
 
 .topValue button {
