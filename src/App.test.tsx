@@ -1,10 +1,11 @@
 import findDelta from './logic/findDelta';
 import findResult from './logic/findResult';
 import findPayment from './logic/findPayment';
+import findMonthResult from './logic/findPayment';
 
 
-import socialNorms from './logic/socialNorms';
 import tarifs from './logic/tarifs';
+import socialNorms from './logic/socialNorms';
 
 describe('electricity payments OVER DAY NORM calculation', () => {
 

@@ -1,4 +1,4 @@
-const findResult = (firstPayment: number, secondPayment: number): number => {
+const findResult = (firstPayment: any, secondPayment: any): number => {
     return firstPayment + secondPayment;
 }
 
