@@ -42,8 +42,9 @@ describe('electricity payments inner functional OVER DAY NORM calculation', () =
 describe('new functional of electricity payments', () => {
 	const constSocialNormDayPay: number = findPayment(SocialNorms.day, Tarifs.dayUnderNorm);
 	const topDayValueObject = new TopValueObject(2160, 2034);
+	const dayMonthDelta = findDelta(topDayValueObject.currentMonthTopValue, topDayValueObject.previousMonthTopValue);
 
-	let thisMonthOverDayNormDeltaPay: number = findDelta(topDayValueObject.currentMonthTopValue, topDayValueObject.previousMonthTopValue);
+	let thisMonthOverDayNormDeltaPay: number = findDelta(dayMonthDelta, SocialNorms.day);
 	console.log(thisMonthOverDayNormDeltaPay);
 	
 	let dayPayResult = calculate(constSocialNormDayPay, thisMonthOverDayNormDeltaPay).overDayNorm;
