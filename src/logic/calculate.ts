@@ -2,7 +2,7 @@ import findResult from './findResult';
 import findPayment from './findPayment';
 import Tarifs from './tarifs';
 
-const calculate = (constSocialNormPhasePay: number, thisMonthOverNormDelta: number) => {
+const calculate = (constSocialNormPhasePay: number, thisMonthOverNormDelta: number):any  => {
     return {
         overDayNorm: calculateOverDayNormValue(constSocialNormPhasePay),
         overNightNorm: calculateOverNightNormValue(constSocialNormPhasePay)

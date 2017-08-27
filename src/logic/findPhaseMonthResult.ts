@@ -4,36 +4,41 @@ import calculate from './calculate';
 
 import Tarifs from './tarifs';
 import PhaseType from './phaseType';
-import TopValueObject from './topValueObject';
 import SocialNorms from './socialNorms';
+import TopValueObject from './TopValueObject';
 
-const findPhaseMonthResult = (phaseTopValueObject: TopValueObject, phaseType: string): void => {
-	
+const findPhaseMonthResult = (phaseTopValueObject: TopValueObject, phaseType: string): any => {
 	const thisMonthDelta: number = findDelta(phaseTopValueObject.currentMonthTopValue, phaseTopValueObject.previousMonthTopValue);
-	const thisMonthOverNormDelta: number = findDelta(thisMonthDelta, SocialNorms.day);
-	
+	const thisMonthOverNormDelta: number = findOverNormDelta(thisMonthDelta, phaseType);
+
 	if (thisMonthOverNormDelta <= 0) {
-		calculateUnderNormValue();
+		return calculateUnderNormValue();
 	}
-	calculateOverNormValue();
+	return calculateOverNormValue();
 
 	function calculateUnderNormValue(): number {
 		if (phaseType === PhaseType.day) {
-			return thisMonthDelta * Tarifs.dayUnderNorm;		
+			 return findPayment(thisMonthDelta, Tarifs.dayUnderNorm);			
 		}
-		return thisMonthDelta * Tarifs.nightUnderNorm;
+		return findPayment(thisMonthDelta, Tarifs.nightUnderNorm);
 	}
 
-	function calculateOverNormValue(): void {
+	function calculateOverNormValue(): number {
 		const constSocialNormDayPay: number = findPayment(SocialNorms.day, Tarifs.dayUnderNorm);
 		const constSocialNormNightPay: number = findPayment(SocialNorms.night, Tarifs.nightUnderNorm);
-		
+
 		if (phaseType === PhaseType.day) {
-			calculate(constSocialNormDayPay, thisMonthOverNormDelta).overDayNorm;
+			return calculate(constSocialNormDayPay, thisMonthOverNormDelta).overDayNorm;
 		}
-		calculate(constSocialNormNightPay, thisMonthOverNormDelta).overNightNorm;		
+		return calculate(constSocialNormNightPay, thisMonthOverNormDelta).overNightNorm;
 	}
 
+	function findOverNormDelta(thisMonthDelta: number, phaseType: string): number {
+		if(phaseType === PhaseType.day){
+			return findDelta(thisMonthDelta, SocialNorms.day);
+		}
+		return findDelta(thisMonthDelta, SocialNorms.night);
+	}
 }
 
 export default findPhaseMonthResult;

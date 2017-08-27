@@ -1,6 +1,6 @@
 enum socialNorms {
-    day = 53,
-    night = 32
+    day = 57,
+    night = 28
 }
 
 export default socialNorms;

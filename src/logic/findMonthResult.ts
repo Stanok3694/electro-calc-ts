@@ -8,11 +8,14 @@ const findMonthResult = (currentMonth: Month, previousMonth: Month):number => {
 
     let dayTopValueObject = new TopValueObject(currentMonth.dayTop, previousMonth.dayTop);
     let nightTopValueObject = new TopValueObject(currentMonth.nightTop, previousMonth.nightTop);
-
-    let dayMonthResult: void = findPhaseMonthResult(dayTopValueObject, PhaseType.day);
+    
+    let dayMonthResult: number = findPhaseMonthResult(dayTopValueObject, PhaseType.day);
     let nightMonthResult: void = findPhaseMonthResult(nightTopValueObject, PhaseType.night);
     
-    return findResult(dayMonthResult, nightMonthResult); 
+    const monthResult: number = findResult(dayMonthResult, nightMonthResult);
+    console.log(monthResult);
+    
+    return monthResult;
 }
 
 export default findMonthResult;
