@@ -1,7 +1,6 @@
 import findDelta from '../logic/findDelta';
 import findResult from '../logic/findResult';
 import findPayment from '../logic/findPayment';
-
 import Tarifs from '../logic/tarifs';
 import SocialNorms from '../logic/socialNorms';
 
