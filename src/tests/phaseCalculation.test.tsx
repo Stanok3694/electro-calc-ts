@@ -1,12 +1,9 @@
 import findDelta from '../logic/findDelta';
 import findPayment from '../logic/findPayment';
-import findMonthResult from '../logic/findMonthResult';
 import calculate from '../logic/calculate';
-import Month from '../logic/Month';
 import TopValueObject from '../logic/TopValueObject';
 import Tarifs from '../logic/tarifs';
 import SocialNorms from '../logic/socialNorms';
-
 
 describe('Day over norm case: ', () => {
 	const constSocialNormDayPay: number = findPayment(SocialNorms.day, Tarifs.dayUnderNorm);
@@ -29,15 +26,5 @@ describe('Night over norm case: ', () => {
 	let nightPayResult = calculate(constSocialNormNightPay, thisMonthOverNightNormDeltaPay).overNightNorm;
 	it('should calculate night phase correct <- 74.13', () => {
 		expect(nightPayResult).toBe(74.13);
-	});
-});
-
-describe('Full result over norm: ', () => {
-	const june = new Month(2342, 1625);
-	const jule = new Month(2414, 1660);
-
-	let resultPayment: number = findMonthResult(jule, june);
-	it('should calculate all cycle correct <- 381.39', () => {
-		expect(resultPayment).toBe(381.39);
 	});
 });
