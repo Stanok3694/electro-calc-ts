@@ -4,6 +4,7 @@ import TechnicalPreValues from '../profit-calc-entities/technicalPreValues';
 
 let percentageFinalResult: number = 0; 
 
+// ToDo: this function looks like code with multiple responsibilities <- should refactor this!
 const findProfit = (amount: number, months: number):any => {
     let increment: number = amount * TechnicalPreValues.percentage;
     let newAmount: number = amount+increment;
