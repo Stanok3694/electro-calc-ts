@@ -1,14 +1,16 @@
 {
-  "name": "electro-calc-ts",
-  "version": "0.1.0",
+  "name": "too-much-calcs",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@types/jest": "^20.0.8",
     "@types/node": "^8.0.25",
     "@types/react": "^16.0.5",
     "@types/react-dom": "^15.5.4",
+    "@types/react-router-dom": "^4.0.7",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-router-dom": "4.2.2",
     "react-scripts-ts": "2.6.0"
   },
   "scripts": {
@@ -16,5 +18,25 @@
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stanok3694/electro-calc-ts.git"
+  },
+  "keywords": [
+    "typescript",
+    "react",
+    "react-router",
+    "jest",
+    "calculators"
+  ],
+  "author": "Stanislav.Okunev@returnonintelligence.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Stanok3694/electro-calc-ts/issues"
+  },
+  "homepage": "https://github.com/Stanok3694/electro-calc-ts#readme"
 }
