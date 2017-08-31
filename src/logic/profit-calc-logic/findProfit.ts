@@ -1,6 +1,6 @@
 import checkResult from './checkResult';
 import monthLabel from './monthLabel';
-import TechnicalPreValues from './technicalPreValues';
+import TechnicalPreValues from '../profit-calc-entities/technicalPreValues';
 
 let percentageFinalResult: number = 0; 
 
