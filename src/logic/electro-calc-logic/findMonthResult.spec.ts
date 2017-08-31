@@ -1,13 +1,12 @@
-import findDelta from '../logic/findDelta';
-import findPayment from '../logic/findPayment';
-import findMonthResult from '../logic/findMonthResult';
-import calculate from '../logic/calculate';
+import findDelta from './findDelta';
+import findPayment from './findPayment';
+import findMonthResult from './findMonthResult';
+import calculate from './calculate';
 
-import Month from '../logic/Month';
-import TopValueObject from '../logic/TopValueObject';
-import Tarifs from '../logic/tarifs';
-import SocialNorms from '../logic/socialNorms';
-
+import Month from '../electro-calc-entities/Month';
+import TopValueObject from '../electro-calc-entities/TopValueObject';
+import Tarifs from '../electro-calc-entities/tarifs';
+import SocialNorms from '../electro-calc-entities/socialNorms';
 
 describe('Day over norm case: ', () => {
 	const constSocialNormDayPay: number = findPayment(SocialNorms.day, Tarifs.dayUnderNorm);

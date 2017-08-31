@@ -1,6 +1,6 @@
 import findResult from './findResult';
 import findPayment from './findPayment';
-import Tarifs from './tarifs';
+import Tarifs from '../electro-calc-entities/tarifs';
 
 const calculate = (constSocialNormPhasePay: number, thisMonthOverNormDelta: number):any  => {
     return {

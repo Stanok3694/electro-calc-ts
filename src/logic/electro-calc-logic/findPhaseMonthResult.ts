@@ -2,10 +2,10 @@ import findDelta from './findDelta';
 import findPayment from './findPayment';
 import calculate from './calculate';
 
-import Tarifs from './tarifs';
-import PhaseType from './phaseType';
-import SocialNorms from './socialNorms';
-import TopValueObject from './TopValueObject';
+import TopValueObject from '../electro-calc-entities/TopValueObject';
+import Tarifs from '../electro-calc-entities/tarifs';
+import SocialNorms from '../electro-calc-entities/socialNorms';
+import PhaseType from '../electro-calc-entities/phaseType';
 
 const findPhaseMonthResult = (phaseTopValueObject: TopValueObject, phaseType: string): any => {
 	const thisMonthDelta: number = findDelta(phaseTopValueObject.currentMonthTopValue, phaseTopValueObject.previousMonthTopValue);

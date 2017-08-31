@@ -1,8 +1,8 @@
 import findResult from './findResult';
 import findPhaseMonthResult from './findPhaseMonthResult';
-import Month from './Month';
-import PhaseType from './phaseType';
-import TopValueObject from './TopValueObject';
+import Month from '../electro-calc-entities/Month';
+import TopValueObject from '../electro-calc-entities/TopValueObject';
+import PhaseType from '../electro-calc-entities/phaseType';
 
 const findMonthResult = (currentMonth: Month, previousMonth: Month):number => {
 
