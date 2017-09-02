@@ -1,7 +1,8 @@
 import findProfit from './findProfit';
-import SuperPuper from '../profit-calc-entities/SuperPuper';
+import MonthState from '../profit-calc-entities/MonthState';
 
-let superPuper = new SuperPuper(300, 12);
-let result: number = findProfit(superPuper.amount, superPuper.months);
+let term:number = 12;
+let startMonth = new MonthState(0,300,0);
+let result: number = findProfit(startMonth, term);
 
 console.log(result);

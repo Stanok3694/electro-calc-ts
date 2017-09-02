@@ -1,28 +1,22 @@
 import checkResult from './checkResult';
-import monthLabel from './monthLabel';
-import TechnicalPreValues from '../profit-calc-entities/technicalPreValues';
+import findFinalResult from './findFinalResult';
+import updateMonthState from './updateMonthState';
+import printMedianResultsWithLabel from './printMedianResultsWithLabel';
+import MonthState from '../profit-calc-entities/MonthState';
 
-let percentageFinalResult: number = 0; 
+let finalResult: number = 0;
+ 
+const findProfit = (month: MonthState, term: number):any => {
+    
+    let newMonth: MonthState = updateMonthState(month);
+    let objectOfResults: object = newMonth.getResultView();
 
-// ToDo: this function looks like code with multiple responsibilities <- should refactor this!
-const findProfit = (amount: number, months: number):any => {
-    let increment: number = amount * TechnicalPreValues.percentage;
-    let newAmount: number = amount+increment;
-    let finalStageAmount: number = newAmount - 25;
-
-    let objectOfResults: object = {
-        percentageIncrem: checkResult(increment),
-        amountIncrem: checkResult(newAmount),
-        sumOnStageStart: checkResult(finalStageAmount)
-    }
-
-    if (months > 0) {
-        percentageFinalResult = percentageFinalResult + increment;
-        console.log(monthLabel(months));
-        console.log(objectOfResults); 
-        return findProfit(finalStageAmount, months-1); 
+    if (term > 0) {
+        finalResult = findFinalResult(finalResult, newMonth.increment);
+        printMedianResultsWithLabel(term, objectOfResults); 
+        return findProfit(newMonth, term-1); 
     } else { 
-        return checkResult(percentageFinalResult); 
+        return checkResult(finalResult); 
     }
 }
 
