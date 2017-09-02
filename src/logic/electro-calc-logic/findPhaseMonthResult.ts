@@ -1,9 +1,7 @@
 import findDelta from './findDelta';
 import findPayment from './findPayment';
-import calculate from './calculate';
-
+import calculate from './calculateService';
 import TopValueObject from '../electro-calc-entities/TopValueObject';
-import Tarifs from '../electro-calc-entities/tarifs';
 import SocialNorms from '../electro-calc-entities/socialNorms';
 import PhaseType from '../electro-calc-entities/phaseType';
 
@@ -12,26 +10,9 @@ const findPhaseMonthResult = (phaseTopValueObject: TopValueObject, phaseType: st
 	const thisMonthOverNormDelta: number = findOverNormDelta(thisMonthDelta, phaseType);
 
 	if (thisMonthOverNormDelta <= 0) {
-		return calculateUnderNormValue();
+		return calculate(phaseType, thisMonthDelta).calculateUnderNormValue;
 	}
-	return calculateOverNormValue();
-
-	function calculateUnderNormValue(): number {
-		if (phaseType === PhaseType.day) {
-			 return findPayment(thisMonthDelta, Tarifs.dayUnderNorm);			
-		}
-		return findPayment(thisMonthDelta, Tarifs.nightUnderNorm);
-	}
-
-	function calculateOverNormValue(): number {
-		const constSocialNormDayPay: number = findPayment(SocialNorms.day, Tarifs.dayUnderNorm);
-		const constSocialNormNightPay: number = findPayment(SocialNorms.night, Tarifs.nightUnderNorm);
-
-		if (phaseType === PhaseType.day) {
-			return calculate(constSocialNormDayPay, thisMonthOverNormDelta).overDayNorm;
-		}
-		return calculate(constSocialNormNightPay, thisMonthOverNormDelta).overNightNorm;
-	}
+	return calculate(phaseType, thisMonthOverNormDelta).calculateOverNormValue;
 
 	function findOverNormDelta(thisMonthDelta: number, phaseType: string): number {
 		if(phaseType === PhaseType.day){

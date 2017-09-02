@@ -12,9 +12,7 @@ const findMonthResult = (currentMonth: Month, previousMonth: Month):number => {
     let dayMonthResult: number = findPhaseMonthResult(dayTopValueObject, PhaseType.day);
     let nightMonthResult: void = findPhaseMonthResult(nightTopValueObject, PhaseType.night);
     
-    const monthResult: number = findResult(dayMonthResult, nightMonthResult);
-    console.log(monthResult);
-    
+    const monthResult: number = findResult(dayMonthResult, nightMonthResult);    
     return monthResult;
 }
 
