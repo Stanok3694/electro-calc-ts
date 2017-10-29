@@ -7,19 +7,21 @@ import {
   Link as Link
 } from 'react-router-dom';
 
+import ElectroCalc from './components/ElectroCalc';
+
 const BasicAppLayer = () => (
   <Router>
     <div>
       <ul>
         <li><Link to="/">Menu</Link></li>
-        <li><Link to="/about">Electricity Payments</Link></li>
-        <li><Link to="/topics">Deposit Profit</Link></li>
+        <li><Link to="/ElectroCalc">Electricity Payments</Link></li>
+        <li><Link to="/DepositProfit">Deposit Profit</Link></li>
       </ul>
 
       <hr/>
 
       <Route exact path="/" component={Home}/>
-      <Route path="/about" component={About}/>
+      <Route path="/ElectroCalc" component={ElectroCalc}/>
       </div>
   </Router>
 );
@@ -27,12 +29,7 @@ const BasicAppLayer = () => (
 const Home = () => (
   <div>
     <h2>Home</h2>
-  </div>
-);
-
-const About = () => (
-  <div>
-    <h2>About</h2>
+    <p>Here you can see some pack of my calculators - made by React + TypeScript + Jest</p>
   </div>
 );
 
