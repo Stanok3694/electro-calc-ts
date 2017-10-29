@@ -5,15 +5,13 @@ import TopValueObject from '../electro-calc-entities/TopValueObject';
 import PhaseType from '../electro-calc-entities/phaseType';
 
 const findMonthResult = (currentMonth: Month, previousMonth: Month):number => {
-
-    let dayTopValueObject = new TopValueObject(currentMonth.dayTop, previousMonth.dayTop);
-    let nightTopValueObject = new TopValueObject(currentMonth.nightTop, previousMonth.nightTop);
-    
-    let dayMonthResult: number = findPhaseMonthResult(dayTopValueObject, PhaseType.day);
-    let nightMonthResult: void = findPhaseMonthResult(nightTopValueObject, PhaseType.night);
-    
-    const monthResult: number = findResult(dayMonthResult, nightMonthResult);    
-    return monthResult;
+    const dayTopValues = new TopValueObject(currentMonth.dayTop, previousMonth.dayTop);
+    const nightTopValues = new TopValueObject(currentMonth.nightTop, previousMonth.nightTop);
+    const dayMonthResult: number = findPhaseMonthResult(dayTopValues, PhaseType.day);
+    const nightMonthResult: void = findPhaseMonthResult(nightTopValues, PhaseType.night);
+    const monthResult: number = findResult(dayMonthResult, nightMonthResult);
+    const formattedResult: number = monthResult*100/100; // TODO: should find a more prettier way to round float...  
+    return formattedResult;
 }
 
 export default findMonthResult;

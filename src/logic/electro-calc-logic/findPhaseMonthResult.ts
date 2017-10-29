@@ -1,5 +1,4 @@
 import findDelta from './findDelta';
-import findPayment from './findPayment';
 import calculate from './calculateService';
 import TopValueObject from '../electro-calc-entities/TopValueObject';
 import SocialNorms from '../electro-calc-entities/socialNorms';
@@ -10,9 +9,9 @@ const findPhaseMonthResult = (phaseTopValueObject: TopValueObject, phaseType: st
 	const thisMonthOverNormDelta: number = findOverNormDelta(thisMonthDelta, phaseType);
 
 	if (thisMonthOverNormDelta <= 0) {
-		return calculate(phaseType, thisMonthDelta).calculateUnderNormValue;
+		return calculate.calculateUnderNormValue(phaseType, thisMonthDelta);
 	}
-	return calculate(phaseType, thisMonthOverNormDelta).calculateOverNormValue;
+	return calculate.calculateOverNormValue(phaseType, thisMonthOverNormDelta);
 
 	function findOverNormDelta(thisMonthDelta: number, phaseType: string): number {
 		if(phaseType === PhaseType.day){

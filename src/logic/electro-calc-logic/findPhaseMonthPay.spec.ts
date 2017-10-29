@@ -5,25 +5,23 @@ import SocialNorms from '../electro-calc-entities/socialNorms';
 import PhaseType from '../electro-calc-entities/phaseType';
 
 describe('Day over norm case: ', () => {	
-	const topDayValueObject = new TopValueObject(2414, 2342);
-	const dayMonthDelta = findDelta(topDayValueObject.currentMonthTopValue, topDayValueObject.previousMonthTopValue);
-
-	let thisMonthOverDayNormDeltaPay: number = findDelta(dayMonthDelta, SocialNorms.day);
-	let dayPayResult = calculate(PhaseType.day, thisMonthOverDayNormDeltaPay).calculateOverNorm;
+	const topValues = new TopValueObject(2600, 2496);
+	const monthDelta = findDelta(topValues.currentMonthTopValue, topValues.previousMonthTopValue);
+	const overNormPay: number = findDelta(monthDelta, SocialNorms.day);
+	const result = calculate.calculateOverNormValue(PhaseType.day, overNormPay);
 	
-	it('should calculate day phase correct <- 307.26', () => {
-		expect(dayPayResult).toBe(307.26);
+	it('should calculate day phase <- 419.68', () => {
+		expect(result).toBe(573.62);
 	});
 });
 
 describe('Night over norm case: ', () => {
-	const topNightValueObject = new TopValueObject(1660, 1625);
-	const nightMonthDelta = findDelta(topNightValueObject.currentMonthTopValue, topNightValueObject.previousMonthTopValue);
+	const topValues = new TopValueObject(1802, 1701);
+	const monthsDelta = findDelta(topValues.currentMonthTopValue, topValues.previousMonthTopValue);
+	const overNormPay: number = findDelta(monthsDelta, SocialNorms.night);
+	const result = calculate.calculateOverNormValue(PhaseType.night, overNormPay);
 
-	let thisMonthOverNightNormDeltaPay: number = findDelta(nightMonthDelta, SocialNorms.night);
-	let nightPayResult = calculate(PhaseType.night, thisMonthOverNightNormDeltaPay).calculateOverNorm;
-	
-	it('should calculate night phase correct <- 74.13', () => {
-		expect(nightPayResult).toBe(74.13);
+	it('should calculate night phase <- 211.81', () => {
+		expect(result).toBe(285.31);
 	});
 });

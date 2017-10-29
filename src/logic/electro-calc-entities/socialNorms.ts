@@ -1,8 +1,8 @@
 enum socialNorms {
-    day = 57,
-    night = 28,
-    constSocialNormDayPay = 204.06,
-    constSocialNormNightPay = 49
+    day = 43,
+    night = 42,
+    constSocialNormDayPay = 153.94,
+    constSocialNormNightPay = 73.5
 }
 
 export default socialNorms;
